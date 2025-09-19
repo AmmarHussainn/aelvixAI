@@ -8,6 +8,9 @@ import Services from './pages/Services';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import CalendlyBooking from './pages/CalendlyBooking';
+import TermsAndConditions from './pages/TermsAndConditions';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import CookiesPolicy from './pages/CookiesPolicy';
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path='/calendly-booking' element={ <CalendlyBooking/>} />
+            <Route path='/termsandcondition' element={<TermsAndConditions/>} />
+            <Route path='/privacypolicy' element={<PrivacyPolicy/>} />
+            <Route path="/cookiepolicy" element={<CookiesPolicy />} />
           </Routes>
         </main>
         <Footer />

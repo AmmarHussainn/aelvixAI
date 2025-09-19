@@ -22,8 +22,8 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <a href="/" className="text-2xl font-bold tracking-wide">
-            <img src= {logoimage}  alt="logo" className="h-14  w-[120px]" />
+            <a href="/" className="text-2xl  font-bold tracking-wide">
+            <img src= {logoimage}  alt="logo" className=" h-16  w-[120px]" />
             </a>
           </div>
 
