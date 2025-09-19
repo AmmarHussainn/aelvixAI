@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -12,6 +12,17 @@ import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import CookiesPolicy from './pages/CookiesPolicy';
 
+
+const RouteWithScrollTop = ({ children }) => {
+  const location = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  
+  return children;
+};
+
 function App() {
   return (
     <Router>
@@ -19,15 +30,64 @@ function App() {
         <Header />
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path='/calendly-booking' element={ <CalendlyBooking/>} />
-            <Route path='/termsandcondition' element={<TermsAndConditions/>} />
-            <Route path='/privacypolicy' element={<PrivacyPolicy/>} />
-            <Route path="/cookiepolicy" element={<CookiesPolicy />} />
+
+
+            <Route path="/" element={
+               <RouteWithScrollTop>
+
+                 <Home />
+               </RouteWithScrollTop>
+              } />
+            <Route path="/about" element={
+              <RouteWithScrollTop>
+              <About />
+              
+              </RouteWithScrollTop>
+              } />
+            <Route path="/services" element={
+               <RouteWithScrollTop>
+
+                 <Services />
+               </RouteWithScrollTop>
+              } />
+            <Route path="/projects" element={
+              <RouteWithScrollTop>
+              <Projects />
+              </RouteWithScrollTop>
+              } />
+            <Route path="/contact" element=
+            {
+                <RouteWithScrollTop>
+
+                  <Contact />
+                </RouteWithScrollTop>
+            
+            } />
+            <Route path='/calendly-booking' element={
+                <RouteWithScrollTop>
+
+                  <CalendlyBooking/>
+                </RouteWithScrollTop>
+              } />
+            <Route path='/termsandcondition' element={
+                <RouteWithScrollTop>
+
+
+                  <TermsAndConditions/>
+                </RouteWithScrollTop>
+              } />
+            <Route path='/privacypolicy' element={
+                <RouteWithScrollTop>
+
+                  <PrivacyPolicy/>
+                </RouteWithScrollTop>
+              } />
+            <Route path="/cookiepolicy" element={
+                <RouteWithScrollTop>
+
+                  <CookiesPolicy />
+                </RouteWithScrollTop>
+              } />
           </Routes>
         </main>
         <Footer />

@@ -96,7 +96,7 @@ const Contact = () => {
           <div className="bg-[#F9F9F9] rounded-2xl p-6 flex flex-col justify-between">
             <div className="flex items-center space-x-3">
               <img
-                src="./emailicon.png"
+                src="./addressicon.png"
                 alt="Address"
                 className="w-[60px] h-[60px] rounded-xl object-contain"
               />

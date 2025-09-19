@@ -23,7 +23,8 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <a href="/" className="text-2xl  font-bold tracking-wide">
-            <img src= {logoimage}  alt="logo" className=" h-16  w-[120px]" />
+            {/* <img src= {logoimage}  alt="logo" className=" h-16  w-[120px]" /> */}
+         Aelvix AI
             </a>
           </div>
 

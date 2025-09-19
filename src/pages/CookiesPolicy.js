@@ -360,28 +360,28 @@ const CookiesPolicy = () => {
                           <td className="px-4 py-3 text-sm text-gray-900">Google Analytics</td>
                           <td className="px-4 py-3 text-sm text-gray-700">Website usage analytics</td>
                           <td className="px-4 py-3 text-sm">
-                            <a href="#" className="text-blue-600 hover:text-blue-800">View Policy</a>
+                            <a href="/" className="text-blue-600 hover:text-blue-800">View Policy</a>
                           </td>
                         </tr>
                         <tr>
                           <td className="px-4 py-3 text-sm text-gray-900">Calendly</td>
                           <td className="px-4 py-3 text-sm text-gray-700">Appointment scheduling</td>
                           <td className="px-4 py-3 text-sm">
-                            <a href="#" className="text-blue-600 hover:text-blue-800">View Policy</a>
+                            <a href="/" className="text-blue-600 hover:text-blue-800">View Policy</a>
                           </td>
                         </tr>
                         <tr>
                           <td className="px-4 py-3 text-sm text-gray-900">Stripe</td>
                           <td className="px-4 py-3 text-sm text-gray-700">Payment processing</td>
                           <td className="px-4 py-3 text-sm">
-                            <a href="#" className="text-blue-600 hover:text-blue-800">View Policy</a>
+                            <a href="/" className="text-blue-600 hover:text-blue-800">View Policy</a>
                           </td>
                         </tr>
                         <tr>
                           <td className="px-4 py-3 text-sm text-gray-900">Intercom</td>
                           <td className="px-4 py-3 text-sm text-gray-700">Customer support chat</td>
                           <td className="px-4 py-3 text-sm">
-                            <a href="#" className="text-blue-600 hover:text-blue-800">View Policy</a>
+                            <a href="/" className="text-blue-600 hover:text-blue-800">View Policy</a>
                           </td>
                         </tr>
                       </tbody>
@@ -415,9 +415,9 @@ const CookiesPolicy = () => {
                         Configure cookie settings directly in your browser. Most browsers allow you to block or delete cookies.
                       </p>
                       <div className="space-y-1 text-sm">
-                        <a href="#" className="text-blue-600 hover:text-blue-800 block">Chrome Settings</a>
-                        <a href="#" className="text-blue-600 hover:text-blue-800 block">Firefox Settings</a>
-                        <a href="#" className="text-blue-600 hover:text-blue-800 block">Safari Settings</a>
+                        <a href="/" className="text-blue-600 hover:text-blue-800 block">Chrome Settings</a>
+                        <a href="/" className="text-blue-600 hover:text-blue-800 block">Firefox Settings</a>
+                        <a href="/" className="text-blue-600 hover:text-blue-800 block">Safari Settings</a>
                       </div>
                     </div>
                   </div>
