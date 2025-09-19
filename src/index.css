@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+
+@font-face {
+  font-family: "Telegraf";
+  src: url("./assets/fonts/TelegrafRegular_272984568a25d8528fe2de8b20b29011.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Telegraf-light";
+  src: url("./assets/fonts/Telegraf\ UltraLight\ 200.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
