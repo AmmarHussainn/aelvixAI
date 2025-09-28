@@ -51,7 +51,7 @@ const Header = () => {
             {/* CTA Button */}
             <a
               href="/calendly-booking"
-              className="ml-6 flex items-center  bg-white border border-blue-400 text-blue-400 px-8 py-3.5 gap-4 rounded-full hover:bg-blue-400 hover:text-white transition"
+              className="ml-6 flex items-center  bg-white border border-blue-400 text-blue-400 px-4 py-2 gap-4 rounded-full hover:bg-blue-400 hover:text-white transition"
             >
               Launch Free Pilot <ArrowUpRight size={24} />
             </a>
