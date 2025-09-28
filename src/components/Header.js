@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import logoimage from '../assets/images/aelvixailogo.png';
+// import logoimage from '../assets/images/aelvixailogo.png';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
