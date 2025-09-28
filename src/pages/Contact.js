@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Facebook, Linkedin, Instagram, Twitter, ArrowUpRight } from "lucide-react";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -7,6 +8,8 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [status, setStatus] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,11 +19,34 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission here
+    setIsSubmitting(true);
+    setStatus(null);
+
+    try {
+      const response = await fetch('https://voice-unitech.onrender.com/api/forms/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
+      const result = await response.json();
+      setStatus({ type: 'success', message: 'Your message has been sent successfully!' });
+      setFormData({ fullName: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      setStatus({ type: 'error', message: 'An error occurred. Please try again later.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
   return (
     <div>
       {/* Contact Hero with Background Image */}
@@ -41,15 +67,12 @@ const Contact = () => {
               </svg>
             </span>
             <p className='text-md md:text-lg font-black text-white'>Contact Us</p>
-
           </span>
         </div>
       </section>
 
-
       <section className="py-20 md:py-24">
         <div className="max-w-7xl mx-auto font-telegraf grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4">
-
           {/* Phone */}
           <div className="bg-[#F9F9F9] rounded-2xl p-6 flex flex-col justify-between">
             <div className="flex items-center space-x-3">
@@ -146,23 +169,29 @@ const Contact = () => {
               </a>
             </div>
           </div>
-
         </div>
       </section>
 
-
       {/* Contact Info */}
       <section className="py-12 container mx-auto">
-        <div className="max-w-7xl mx-auto  px-4 flex flex-col lg:flex-row gap-6 lg:gap-8 items-center">
-
-
-          <div className="bg-[#F9F9F9] w-full lg:w-[60%]  rounded-2xl p-8 lg:p-10 font-telegraf">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-6 lg:gap-8 items-center">
+          <div className="bg-[#F9F9F9] w-full lg:w-[60%] rounded-2xl p-8 lg:p-10 font-telegraf">
             <h2 className="text-3xl lg:text-5xl font-normal text-gray-900 mb-4">
               Let's Talk!
             </h2>
             <p className="text-gray-600 mb-8">
               Get in touch with us using the enquiry form or contact details below
             </p>
+
+            {status && (
+              <div
+                className={`mb-6 p-4 rounded-lg ${
+                  status.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                }`}
+              >
+                {status.message}
+              </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -236,9 +265,10 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="inline-flex gap-3 items-center justify-center px-8 py-3 bg-gradient-to-r from-[#2775EA] to-[#77DCBC]  text-white font-medium rounded-full focus:ring-4 focus:ring-blue-500/25 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                className="inline-flex gap-3 items-center justify-center px-8 py-3 bg-gradient-to-r from-[#2775EA] to-[#77DCBC] text-white font-medium rounded-full focus:ring-4 focus:ring-blue-500/25 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50"
+                disabled={isSubmitting}
               >
-                Submit
+                {isSubmitting ? 'Submitting...' : 'Submit'}
                 <ArrowUpRight size={16} />
               </button>
             </form>
@@ -246,9 +276,7 @@ const Contact = () => {
 
           <img src='/LetsTalk.png' alt='letstalk' className='w-full lg:w-[40%] ' />
         </div>
-
       </section>
-
 
       <section>
         <div className='w-full h-[500px]'>
